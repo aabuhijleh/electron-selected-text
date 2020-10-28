@@ -1,8 +1,8 @@
 # Electron Selected Text
 
-> Get selected text from any application using Electron's clipboard & robotjs
+> Get selected text from any application using Electron's [clipboard](https://www.electronjs.org/docs/api/clipboard) and [robotjs](https://github.com/octalmage/robotjs)
 
-For Electron 10 and later, this module should only be used in the main process because robotjs is not context aware
+For Electron 10 and later, this module should only be used in the main process because [robotjs is not context aware](https://github.com/octalmage/robotjs/issues/580)
 
 ## Install
 
