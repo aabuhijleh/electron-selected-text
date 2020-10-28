@@ -7,11 +7,12 @@
     "lib/**/*"
   ],
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/aabuhijleh/electropn-selected-text.git"
+    "url": "git+https://github.com/aabuhijleh/electron-selected-text.git"
   },
   "keywords": [
     "electron",
