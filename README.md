@@ -10,8 +10,6 @@ For Electron 10 and later, this module should only be used in the main process b
 $ npm install electron-selected-text
 ```
 
-_Requires node-gyp_
-
 ## Usage
 
 ```ts
