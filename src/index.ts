@@ -1,7 +1,7 @@
 import { keyTap } from "robotjs";
 import { clipboard } from "electron";
 
-export const getSelectedText = async (): Promise<string> => {
+export const getSelectedText = async () => {
   const oldClipboardContent = clipboard.readText(); // preserve clipboard content
   clipboard.clear();
   keyTap("c", process.platform === "darwin" ? "command" : "control");
