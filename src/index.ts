@@ -1,9 +1,9 @@
-import { keyTap } from "robotjs";
 import { clipboard, globalShortcut } from "electron";
+import { keyTap } from "robotjs";
 
 /**
  * Gets selected text by synthesizing the keyboard shortcut
- * "CommandControl+c" then reading text from the clipboard
+ * "CommandOrControl+c" then reading text from the clipboard
  */
 export const getSelectedText = async () => {
   const currentClipboardContent = clipboard.readText(); // preserve clipboard content
