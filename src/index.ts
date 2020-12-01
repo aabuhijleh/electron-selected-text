@@ -1,6 +1,10 @@
 import { keyTap } from "robotjs";
 import { clipboard, globalShortcut } from "electron";
 
+/**
+ * Gets selected text by synthesizing the keyboard shortcut
+ * "CommandControl+c" then reading text from the clipboard
+ */
 export const getSelectedText = async () => {
   const currentClipboardContent = clipboard.readText(); // preserve clipboard content
   clipboard.clear();
@@ -11,6 +15,10 @@ export const getSelectedText = async () => {
   return selectedText;
 };
 
+/**
+ * Registers a global shortcut and calls the callback
+ * with the selected text when the shorcut is pressed
+ */
 export const registerShortcut = (
   accelerator: Electron.Accelerator,
   callback: (selectedText: string) => any
@@ -24,6 +32,10 @@ export const registerShortcut = (
   }
 };
 
+/**
+ * Unregisters a global shortcut and is
+ * equivalent to electron.globalShortcut.unregister
+ */
 export const unregisterShortcut = (accelerator: Electron.Accelerator) => {
   globalShortcut.unregister(accelerator);
 };
