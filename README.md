@@ -16,15 +16,13 @@ $ npm install electron-selected-text
 import { app } from "electron";
 import { getSelectedText, registerShortcut } from "electron-selected-text";
 
-getSelectedText().then((selectedText) => {
-  console.log(selectedText);
-});
+const printSelectedText = (selectedText) => {
+  console.log(`Selected Text: ${selectedText}`);
+};
+
+getSelectedText().then(printSelectedText);
 
 app.whenReady().then(() => {
-  const printSelectedText = (selectedText) => {
-    console.log(selectedText);
-  };
-
   registerShortcut("F6", printSelectedText);
 });
 ```
