@@ -16,25 +16,23 @@ export const getSelectedText = async () => {
 };
 
 /**
- * Registers a global shortcut and calls the callback
- * with the selected text when the shorcut is pressed
+ * Registers a global shortcut of `accelerator`. The `callback` is called
+ * with the selected text when the registered shorcut is pressed by the user
+ *
+ * Returns `true` if the shortcut was registered successfully
  */
 export const registerShortcut = (
   accelerator: Electron.Accelerator,
-  callback: (selectedText: string) => any
+  callback: (selectedText: string) => void
 ) => {
-  const ret = globalShortcut.register(accelerator, async () => {
+  return globalShortcut.register(accelerator, async () => {
     callback(await getSelectedText());
   });
-
-  if (!ret) {
-    throw new Error("registration failed");
-  }
 };
 
 /**
- * Unregisters a global shortcut and is
- * equivalent to electron.globalShortcut.unregister
+ * Unregisters a global shortcut of `accelerator` and
+ * is equivalent to electron.globalShortcut.unregister
  */
 export const unregisterShortcut = (accelerator: Electron.Accelerator) => {
   globalShortcut.unregister(accelerator);
