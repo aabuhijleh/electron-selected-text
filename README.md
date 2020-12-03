@@ -2,7 +2,7 @@
 
 > Get selected text from any application using Electron's [clipboard](https://www.electronjs.org/docs/api/clipboard) and [robotjs](https://github.com/octalmage/robotjs)
 
-For Electron 10 and later, this module should only be used in the main process because [robotjs is not context aware](https://github.com/octalmage/robotjs/issues/580)
+For [Electron 9 and later](https://github.com/electron/electron/issues/18397), this module should only be used in the main process because [robotjs is not context aware](https://github.com/octalmage/robotjs/issues/580)
 
 ## Install
 
@@ -23,6 +23,10 @@ const printSelectedText = (selectedText) => {
 getSelectedText().then(printSelectedText);
 
 app.whenReady().then(() => {
-  registerShortcut("F6", printSelectedText);
+  const ret = registerShortcut("F6", printSelectedText);
+
+  if (!ret) {
+    console.warn("registration failed");
+  }
 });
 ```
